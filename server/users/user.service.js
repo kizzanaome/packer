@@ -14,7 +14,7 @@ module.exports = {
                 data.password,
             ],
             (error, results, fields) => {
-                if(error) {
+                if (error) {
                     return callback(error);
                 }
                 return callback(null, results);
@@ -27,11 +27,24 @@ module.exports = {
             `select * from users where email = ?`,
             [email],
             (error, results, fields) => {
-                if(error) {
-                    callBack(error);
+                if (error) {
+                    return callBack(error);
                 }
                 return callBack(null, results[0]);
             }
         );
-    }
+    },
+
+    getUsers: callBack => {
+        pool.query(
+            `select first_name, last_name, email, username from users`,
+            [],
+            (error, results, fields) => {
+                if (error) {
+                    return callBack(error);
+                }
+                return callBack(null, results);
+            }
+        );
+    },
 };
