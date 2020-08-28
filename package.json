@@ -1,0 +1,30 @@
+{
+  "name": "packin",
+  "version": "1.0.0",
+  "description": "Just an app for demo",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kizzanaome/packer.git"
+  },
+  "author": "thrivetech",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kizzanaome/packer/issues"
+  },
+  "homepage": "https://github.com/kizzanaome/packer#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
