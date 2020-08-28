@@ -4,16 +4,18 @@ const express = require('express');
 const app = express();
 const userRouter = require('./server/users/user.router');
 
+const PORT = process.env.PORT || process.env.APP_PORT
+
 app.use(express.json());
 
 app.use('/api/v1', userRouter);
 
 app.get('/api/v1', (req, res) => {
-    res.json({
-        message: 'Application ready'
+    return res.status(200).json({
+        message: 'Packer is good to go!!!!!'
     });
 });
 
-app.listen(process.env.APP_PORT, () => {
-    console.log('Application is up and running on PORT: ', process.env.APP_PORT, '\n');
+app.listen(PORT, () => {
+    console.log('Application is up and running on PORT: ', PORT, '\n');
 });
