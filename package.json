@@ -7,6 +7,9 @@
     "start": "nodemon app.js",
     "test": "test"
   },
+  "engines": {
+    "node": "10.19.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/kizzanaome/packer.git"
