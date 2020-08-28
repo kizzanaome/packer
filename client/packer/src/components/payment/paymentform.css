@@ -1,0 +1,89 @@
+.body{
+    background-color: rgb(36, 42, 134);
+}
+
+.content{
+    
+    text-align: center;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: white;
+}
+
+.form_fields{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    width: 700px;
+    background: #FFFFFF;
+    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.05), -5px -5px 7px rgba(0, 0, 0, 0.05);
+    border-radius: 7px;
+   
+}
+
+.form_elements{
+    display: flex;
+    flex-flow: column;
+    text-align: center; 
+}
+
+.payment_form{
+    width: 525px;
+}
+
+input,select {
+   
+    width: 500px;
+    border: 0.5px solid rgb(168, 168, 168);
+    height: 47px;
+    font-size: 15px;
+    margin: 7px 0;
+    padding-left: 17px;
+    border-radius: 5px;
+    transition: .3s;
+}
+
+input:hover,
+input:focus {
+    border: 0.7px solid #009F3D !important;
+    transition: .3s;
+}
+
+button{
+
+    width: 200px;
+    height: 47px;
+    background: #009F3D;
+    border: 1px solid #65B742;
+    box-sizing: border-box;
+    border-radius: 7px;
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 17px;
+    color: white;
+    transition: .3s;
+}
+
+button:hover{
+    cursor: pointer;
+    border: 1px solid black;
+    transition: .3s;
+
+}
+
+.payment_mode{
+    background: none;
+    width:523px !important;
+
+}
+
+.errmsg{
+    color: red;
+    font-size: 15px;
+    margin-left: 5px;
+    text-align: left;
+}
