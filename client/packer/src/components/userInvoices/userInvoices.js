@@ -1,9 +1,10 @@
 import React from 'react';
-import axios from 'axios'
+// import axios from 'axios'
 import './user_invoices.css';
 // import './singleInvoice'
 import SingleInvoice from './singleInvoice';
 import Header from '../shared/header';
+import Middle from './midsect';
 
 class UserInvoices extends React.Component {
 
@@ -27,14 +28,10 @@ class UserInvoices extends React.Component {
 
     render() {
         return (
-                <div className="inv_page_body">
+                <div>
                     <Header/>
+                    <Middle />
                     <div className="all_invoices">
-                        <div className="title">
-                            <h1>
-                                My Invoices
-                            </h1>
-                        </div>
                         <SingleInvoice/>
                     </div>
                 </div>

@@ -74,7 +74,7 @@ class PaymentForm extends React.Component {
             case "inv_id":
                 errors.inv_id =
                     value.length < 3 ? "minimum 3 characters required" : "";
-                    // value.match(/^\w+$/) ? "Please use only alphanumeric:"";
+                // value.match(/^\w+$/) ? "Please use only alphanumeric:"";
                 break;
             case "amount_paid":
                 errors.amount_paid =

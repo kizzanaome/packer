@@ -1,13 +1,18 @@
 import React from 'react'
+import logo from '../../assets/images/logo2.png'
 
-class Header extends React.Component{
-    render(){
+class Header extends React.Component {
+    render() {
 
-        return(
+        return (
             <div className="header">
-                <h1>
-                    Packer
-                </h1>
+                <div className="navbar">
+                    <div className="logo">
+                        <img className="logo-pic" src={logo} alt="logo" />
+                        <h1>PACKER</h1>
+                    </div>
+                    <p>Call us: (256) 315 000000</p>
+                </div>
             </div>
 
         )
