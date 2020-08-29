@@ -1,8 +1,11 @@
 import React from 'react'
+import { useHistory, withRouter } from "react-router-dom";
+import history from '../../history'
+
+
 
 class SingleInvoice extends React.Component{
 
-    
     render(){
            const payments =[
             { id :1, inv_id:1, tansaction_id:3,
@@ -14,14 +17,22 @@ class SingleInvoice extends React.Component{
 
             {id :4, inv_id:3, tansaction_id:3,
                     tansaction_amount:4000, surcharge:500, date_time:"12/10/2020", payment_status:"true"},
+            {id :5, inv_id:3, tansaction_id:3,
+                tansaction_amount:4000, surcharge:500, date_time:"12/10/2020", payment_status:"true"},
+            {id :6, inv_id:3, tansaction_id:3,
+                    tansaction_amount:4000, surcharge:500, date_time:"12/10/2020", payment_status:"true"},
             {id :3, inv_id:3, tansaction_id:3,
-                tansaction_amount:4000, surcharge:500, date_time:"12/10/2020", payment_status:"true"}
+                        tansaction_amount:4000, surcharge:500, date_time:"12/10/2020", payment_status:"true"}
+
+
          ]
+
+         
        
         return(
             <div className="invoices_tables">
                 <table>
-                    <tr>
+                    <tr className="tbl_header">
                         <th>
                             No.
                         </th>
@@ -46,6 +57,7 @@ class SingleInvoice extends React.Component{
                         <td>
                             {payment.id}
                         </td>
+
                         <td>
                             {payment.tansaction_id}
                         </td>
@@ -63,9 +75,10 @@ class SingleInvoice extends React.Component{
                            
                         </td>
                         <td>
-                            <button>
+                            <button type="button" onClick={() =>{ history.push('/makepayment')
+                                                                window.location.reload()}}>
                                 Make Payment
-                            </button>
+                            </button>   
                         </td>
                     </tr>
                     ))}

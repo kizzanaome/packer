@@ -90,19 +90,19 @@ class PaymentForm extends React.Component {
     onSubmit = (e) => {
         e.preventDefault();
         if (validateForm(this.state)) {
-            console.log(`
-            --SUBMITTING--
+            alert(`
+            Payment Submitted
+            data:{
             inv_id: ${this.state.inv_id}
             amount_paid: ${this.state.amount_paid}
             date_time_paid: ${this.state.date_time_paid}
             paid_by: ${this.state.paid_by}
+            }
           `);
         } else {
-            console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
+            alert("Payment not Succesfull");
         }
     };
-
-
 
     render() {
         const { inv_id,
@@ -117,6 +117,7 @@ class PaymentForm extends React.Component {
         console.log(errors)
         return (
             <div className="content">
+                <a href="/userinvoices">Invoices</a>
                 <div className="form_fields">
 
                     <h1>
@@ -194,8 +195,8 @@ class PaymentForm extends React.Component {
                             <div className="errmsg">{this.state.errors.paid_by_phone_number}</div>
 
 
-                            <select name="payment_mode" id="payment_mode" className="payment_mode" value={payment_mode} onChange={this.onChange}>
-                                <option value="cash">Select Mode of Payment</option>
+                            <select name="payment_mode" id="payment_mode" className="payment_mode" value={payment_mode} onChange={this.onChange} defaultValue="Select Mode of Payment">
+                                <option defaultValue>Select Mode of Payment</option>
                                 <option value="cash">Cash</option>
                                 <option value="cash">Check</option>
                                 <option value="cash">Mobile Money</option>

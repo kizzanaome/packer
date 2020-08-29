@@ -3,6 +3,7 @@ import axios from 'axios'
 import './user_invoices.css';
 // import './singleInvoice'
 import SingleInvoice from './singleInvoice';
+import Header from '../shared/header';
 
 class UserInvoices extends React.Component {
 
@@ -26,18 +27,18 @@ class UserInvoices extends React.Component {
 
     render() {
         return (
-
-            <body>
-                <div>
-                    <div>
-                        <h1>
-                            My Invoices
-                        </h1>
+                <div className="inv_page_body">
+                    <Header/>
+                    <div className="all_invoices">
+                        <div className="title">
+                            <h1>
+                                My Invoices
+                            </h1>
+                        </div>
+                        <SingleInvoice/>
                     </div>
-                    <SingleInvoice/>
                 </div>
-            </body>
-        )
+              )
     }
 }
 
