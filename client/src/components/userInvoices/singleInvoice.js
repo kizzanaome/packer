@@ -1,44 +1,65 @@
 import React from 'react'
+import axios from 'axios'
 // import { useHistory, withRouter } from "react-router-dom";
 
 
 
 class SingleInvoice extends React.Component {
 
+    constructor() {
+        super()
+        this.state = {
+            user_invoices: []
+
+        }
+    }
+
+    componentDidMount(){
+        const url = "https://packin.herokuapp.com/api/v1/invoices"
+       axios.get(url)
+            .then(response => {
+                console.log(response.data.data)
+                
+                this.setState({ user_invoices: response.data.data })
+            })
+    }
+
     render() {
-        const payments = [
-            {
-                id: 1, inv_id: 1, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            },
-            {
-                id: 2, inv_id: 2, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            },
-            {
-                id: 3, inv_id: 3, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            },
 
-            {
-                id: 4, inv_id: 3, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            },
-            {
-                id: 5, inv_id: 3, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            },
-            {
-                id: 6, inv_id: 3, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            },
-            {
-                id: 3, inv_id: 3, tansaction_id: 3,
-                tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
-            }
+        const{user_invoices}= this.state
+        // const payments = [
+        //     {
+        //         id: 1, inv_id: 1, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     },
+        //     {
+        //         id: 2, inv_id: 2, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     },
+        //     {
+        //         id: 3, inv_id: 3, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     },
+
+        //     {
+        //         id: 4, inv_id: 3, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     },
+        //     {
+        //         id: 5, inv_id: 3, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     },
+        //     {
+        //         id: 6, inv_id: 3, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     },
+        //     {
+        //         id: 3, inv_id: 3, tansaction_id: 3,
+        //         tansaction_amount: 4000, surcharge: 500, date_time: "12/10/2020", payment_status: "true"
+        //     }
 
 
-        ]
+        // ]
 
 
 
@@ -67,27 +88,27 @@ class SingleInvoice extends React.Component {
                         </th>
                         </tr>
                     </thead>
-                    {payments.map(payment => (
+                    {user_invoices.map(user_invoice => (
                         <tbody>
-                            <tr key={payment.id}>
+                            <tr key={user_invoice.id}>
                                 <td>
-                                    {payment.id}
+                                    {user_invoice.id}
                                 </td>
 
                                 <td>
-                                    {payment.tansaction_id}
+                                    {user_invoice.transaction_number}
                                 </td>
                                 <td>
-                                    {payment.tansaction_amount}
+                                    {user_invoice.transaction_amount}
                                 </td>
                                 <td>
-                                    {payment.surcharge}
+                                    {user_invoice.surcharge}
                                 </td>
                                 <td>
-                                    {payment.date_time}
+                                    {user_invoice.transaction_date}
                                 </td>
                                 <td>
-                                    {payment.payment_status}
+                                    {user_invoice.payment_status}
 
                                 </td>
                                 {/* <td>
