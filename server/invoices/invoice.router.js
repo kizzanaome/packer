@@ -5,6 +5,6 @@ const {
 const router = require('express').Router();
 const { validateToken } = require('../../authenticate/token_validation');
 
-router.get('/invoices', validateToken, allInvoices)
+router.get('/invoices', allInvoices)
 
 module.exports = router;
