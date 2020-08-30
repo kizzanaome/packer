@@ -8,6 +8,10 @@ const invoiceRouter = require('./server/invoices/invoice.router');
 const PORT = process.env.PORT || process.env.APP_PORT
 
 app.use(express.json());
+app.use((req, res, next) => {
+    res.header('Acess-Control-Allow-Origin', '*');
+    next();
+});
 
 app.use('/api/v1', userRouter);
 app.use('/api/v1', invoiceRouter);
