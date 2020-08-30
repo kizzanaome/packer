@@ -1,5 +1,7 @@
 require('dotenv').config();
 const express = require('express');
+const request = require('request');
+const cors = require('cors')
 
 const app = express();
 const userRouter = require('./server/users/user.router');
@@ -8,6 +10,7 @@ const invoiceRouter = require('./server/invoices/invoice.router');
 const PORT = process.env.PORT || process.env.APP_PORT
 
 app.use(express.json());
+app.use(cors());
 app.use((req, res, next) => {
     res.header('Acess-Control-Allow-Origin', '*');
     next();
