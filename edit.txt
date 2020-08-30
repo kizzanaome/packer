@@ -1,0 +1,5 @@
+// "build": "cd client/packer && npm run build",
+"test": "echo \"Error: no test specified\" && exit 1",
+
+"client": "cd client/packer && npm start",
+"main": "index.js",

@@ -3,13 +3,13 @@ import { BrowserRouter, Route, Switch} from 'react-router-dom';
 
 import PaymentForm from '../components/payment/paymentform'
 import UserInvoices from '../components/userInvoices/userInvoices'
-import history from '../history'
+// import history from '../history'
 // import SingleInvoice from '../components/userInvoices/singleInvoice'
 
 const Routes =()=>{
 
     return(
-    <BrowserRouter history={history}>
+    <BrowserRouter>
         <Switch>
             <Route path='/makepayment' exact component={PaymentForm}/>
             <Route path='/userinvoices' exact component={UserInvoices}/>
