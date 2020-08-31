@@ -1,7 +1,6 @@
 import React from 'react'
-// import axios from 'axios'
 
-import './paymentform.css'
+import './modal_box.css';
 
 const initialState = {
     inv_id: "",
@@ -11,6 +10,9 @@ const initialState = {
     payment_mode: "",
     paid_by: "",
     paid_by_phone_number: "",
+    // show:"",
+    // show:false,
+    // handleClose,
     errors: {
         inv_id: "",
         amount_paid: "",
@@ -39,32 +41,19 @@ const validateForm = ({ errors, ...rest }) => {
     });
 
 
-    // if (!this.state.inv_id || !this.state.amount_paid ||
-    //     !this.state.date_time_paid ||  !this.state.created_by || 
-    //     !this.state.payment_mode || !this.state.paid_by
-    //     || !this.state.paid_by_phone_number ){
-    //     formIsValid = false
-    //     errors["inv_id"]= "Feild cant"
-    // }
-
-    // if (this.state.amount_paid) {
-    //     if (!this.state.amount_paid.match(/^\w+$/)) {
-    //         formIsValid = false
-    //         errors['amount_paid'] = '*Please use alphanumeric characters only'
-    //     }
-    // }
-
-    // this.setState({ errors })
     return formIsValid
 }
 
+class Modal extends React.Component{
 
-class PaymentForm extends React.Component {
-    constructor(props) {
+    constructor(props){
         super(props);
         this.state = initialState
 
     }
+    
+    // showHideClassName = this.show ? "modal display-block" : "modal display-none";
+
 
     onChange = (e) => {
         const { name, value } = e.target
@@ -87,6 +76,8 @@ class PaymentForm extends React.Component {
         this.setState({ errors, [name]: value }, () => console.log(this.state))
     }
 
+
+
     onSubmit = (e) => {
         e.preventDefault();
         if (validateForm(this.state)) {
@@ -104,20 +95,28 @@ class PaymentForm extends React.Component {
         }
     };
 
-    render() {
+    render(){
         const { inv_id,
             amount_paid,
             date_time_paid,
             created_by,
             payment_mode,
             paid_by,
-            paid_by_phone_number } = this.state
+            paid_by_phone_number ,
+            // show
+        } = this.state
 
         const { errors } = this.state
         console.log(errors)
-        return (
-            <div className="content">
-                <a href="/userinvoices">Invoices</a>
+        return(
+            <div className={this.props.show ? "modal display-block" : "modal display-none"}>
+            <section className="modal-main">
+
+
+                {/* {children} */}
+                <button className="close" onClick={this.props.handleClose}>&times;</button>
+                {/* <a href=""></a> */}
+
                 <div className="form_fields">
 
                     <h1>
@@ -125,13 +124,18 @@ class PaymentForm extends React.Component {
                     </h1>
                     <div className="form_elements">
                         <form onSubmit={this.onSubmit} className="payment_form">
+                            {/* <p className="">
+                               VEHICLE NUMBER:  UBD 448P
+                            </p> */}
                             <input
-                                className={errors.inv_id.length > 0 ? "error" : ""}
+                                // className={errors.inv_id.length > 0 ? "error" : ""}
                                 type="text"
-                                placeholder="Vehicle Number"
-                                value={inv_id}
+                                // placeholder="Vehicle Number"
+                                value="UBD 9452P" 
                                 name="inv_id"
-                                onChange={this.onChange}
+                                disabled={true}
+                                className="vehicle_number"
+                                // onChange={this.onChange}
                             />
 
                             {errors.inv_id.length > 0 && (
@@ -211,9 +215,13 @@ class PaymentForm extends React.Component {
                         </form>
                     </div>
                 </div>
-            </div>
+
+            </section>
+        </div>
         )
     }
 }
 
-export default PaymentForm;
+
+
+export default Modal;

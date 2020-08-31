@@ -157,7 +157,6 @@ tr:hover {
 td{
     /* Rectangle 38 */
 
-
     /* width: 1140px; */
     height: 70px;
     border-bottom: 1px solid rgb(209, 205, 205);
@@ -177,4 +176,12 @@ td{
     background-color: #2f5fa8;
     color: white;}*/
 
- 
+
+.invoice_checkbox{
+    width: 17px;
+    border: none;
+    height: 17px;
+    margin: 0 15px;
+    padding: 0;
+    border-radius: none;
+}

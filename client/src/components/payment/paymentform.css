@@ -20,7 +20,7 @@
     padding: 50px;
     width: 700px;
     background: #FFFFFF;
-    box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.05), -5px -5px 7px rgba(0, 0, 0, 0.05);
+    /* box-shadow: 5px 5px 7px rgba(0, 0, 0, 0.05), -5px -5px 7px rgba(0, 0, 0, 0.05); */
     border-radius: 7px;
    
 }
